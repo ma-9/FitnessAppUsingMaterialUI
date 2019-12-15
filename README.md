@@ -1,2 +1,0 @@
-# FitnessAppUsingMaterialUI
-Created with CodeSandbox
