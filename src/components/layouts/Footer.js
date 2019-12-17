@@ -12,10 +12,10 @@ export default ({ muscles, category, onSelect }) => {
   return (
     <Paper>
       <Tabs
-        indicatorColor="primary"
+        indicatorColor="secondary"
         onChange={handleIndexSelect}
         value={index}
-        textColor="primary"
+        textColor="secondary"
         centered
       >
         <Tab label="ALL" />
