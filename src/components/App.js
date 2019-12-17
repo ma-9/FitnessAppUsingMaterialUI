@@ -39,7 +39,7 @@ export default class App extends Component {
       { category, exercise } = this.state;
     return (
       <Fragment>
-        <Header />
+        <Header muscles={muscles} />
         <Exercise
           ex={exercise}
           onSelect={this.handleExerciseSelected}
