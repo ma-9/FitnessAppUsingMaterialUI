@@ -10,14 +10,14 @@ import {
   IconButton
 } from '@material-ui/core';
 
-import { Delete } from '@material-ui/icons';
+import { Delete, Edit } from '@material-ui/icons';
 
 const Styles = {
   Paper: {
     padding: 20,
     marginTop: 10,
     marginBottom: 10,
-    height: 300,
+    height: 400,
     overflowY: 'auto'
   }
 };
@@ -27,6 +27,8 @@ export default ({
   category,
   onSelect,
   onDelete,
+  onSelectEdit,
+  editMode,
   ex: {
     id,
     title = 'Welcome Folks!',
@@ -47,8 +49,11 @@ export default ({
                   <ListItem key={id} button onClick={() => onSelect(id)}>
                     <ListItemText primary={title} />
                     <ListItemSecondaryAction>
+                      <IconButton onClick={() => onSelectEdit(id)}>
+                        <Edit color="inherit" />
+                      </IconButton>
                       <IconButton onClick={() => onDelete(id)}>
-                        <Delete />
+                        <Delete color="error" />
                       </IconButton>
                     </ListItemSecondaryAction>
                   </ListItem>
@@ -61,10 +66,16 @@ export default ({
     </Grid>
     <Grid item xs>
       <Paper style={Styles.Paper}>
-        <Typography variant="h5">{title}</Typography>
-        <Typography variant="subtitle1" style={{ marginTop: 20 }}>
-          {description}
-        </Typography>
+        {editMode ? (
+          <form />
+        ) : (
+          <Fragment>
+            <Typography variant="h5">{title}</Typography>
+            <Typography variant="subtitle1" style={{ marginTop: 20 }}>
+              {description}
+            </Typography>
+          </Fragment>
+        )}
       </Paper>
     </Grid>
   </Grid>

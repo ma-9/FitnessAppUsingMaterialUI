@@ -6,7 +6,8 @@ import { muscles, exercises } from '../Store';
 export default class App extends Component {
   state = {
     exercises,
-    exercise: {}
+    exercise: {},
+    editMode: false
   };
 
   getExerciseByMuscles = () => {
@@ -17,8 +18,6 @@ export default class App extends Component {
       }),
       {}
     );
-
-    console.log(muscles, initExercises);
 
     return Object.entries(
       this.state.exercises.reduce((exercises, exercise) => {
@@ -31,40 +30,46 @@ export default class App extends Component {
     );
   };
 
-  handleExerciseCreate = exercise => {
+  handleExerciseCreate = exercise =>
     this.setState(({ exercises }) => ({
       exercises: [...exercises, exercise]
     }));
-  };
 
-  handleCategorySelect = category => {
+  handleCategorySelect = category =>
     this.setState({
       category
     });
-  };
 
-  handleExerciseSelect = id => {
+  handleExerciseSelect = id =>
     this.setState(({ exercises }) => ({
       exercise: exercises.find(ex => ex.id === id)
     }));
-  };
 
-  handleExerciseDelete = id => {
+  handleExerciseDelete = id =>
     this.setState(({ exercises }) => ({
       exercises: exercises.filter(ex => ex.id !== id)
     }));
-  };
+
+  handleExerciseSelectEdit = id =>
+    this.setState(({ exercises }) => ({
+      exercise: exercises.find(ex => ex.id === id),
+      editMode: true
+    }));
 
   render() {
     const exercises = this.getExerciseByMuscles(),
-      { category, exercise } = this.state;
+      { category, exercise, editMode } = this.state;
     return (
       <Fragment>
         <Header
           muscles={muscles}
           onExerciseCreate={this.handleExerciseCreate}
         />
+        <br />
+        <br />
         <Exercise
+          editMode={editMode}
+          onSelectEdit={this.handleExerciseSelectEdit}
           onDelete={this.handleExerciseDelete}
           ex={exercise}
           onSelect={this.handleExerciseSelect}
