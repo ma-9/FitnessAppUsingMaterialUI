@@ -5,8 +5,12 @@ import {
   Typography,
   List,
   ListItem,
-  ListItemText
+  ListItemText,
+  ListItemSecondaryAction,
+  IconButton
 } from '@material-ui/core';
+
+import { Delete } from '@material-ui/icons';
 
 const Styles = {
   Paper: {
@@ -22,6 +26,7 @@ export default ({
   exercises,
   category,
   onSelect,
+  onDelete,
   ex: {
     id,
     title = 'Welcome Folks!',
@@ -37,10 +42,15 @@ export default ({
               <Typography variant="h6" style={{ textTransform: 'capitalize' }}>
                 {group}
               </Typography>
-              <List component="ul" aria-label="secondary mailbox folders">
+              <List component="ul">
                 {exercises.map(({ id, title }) => (
                   <ListItem key={id} button onClick={() => onSelect(id)}>
                     <ListItemText primary={title} />
+                    <ListItemSecondaryAction>
+                      <IconButton onClick={() => onDelete(id)}>
+                        <Delete />
+                      </IconButton>
+                    </ListItemSecondaryAction>
                   </ListItem>
                 ))}
               </List>
