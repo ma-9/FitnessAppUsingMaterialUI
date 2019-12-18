@@ -52,6 +52,24 @@ export default withStyles(styles)(
       });
     };
 
+    handleSubmit = () => {
+      // TODO: Validate the Form
+
+      const { exercise } = this.state;
+      this.props.onCreate({
+        ...exercise,
+        id: exercise.title.toLowerCase().replace(/ /g, '-')
+      });
+      this.setState({
+        open: false,
+        exercise: {
+          title: '',
+          description: '',
+          muscles: ''
+        }
+      });
+    };
+
     render() {
       const {
           open,
@@ -76,6 +94,7 @@ export default withStyles(styles)(
               </DialogContentText>
               <form>
                 <TextField
+                  required
                   color="secondary"
                   label="Title"
                   onChange={this.handleChange('title')}
@@ -87,17 +106,21 @@ export default withStyles(styles)(
                 <FormControl color="secondary" className={classes.formControl}>
                   <InputLabel id="muscles">Muscles</InputLabel>
                   <Select
+                    required
                     labelId="muscles"
                     id="demo-simple-select"
                     value={muscles}
                     onChange={this.handleChange('muscles')}
                   >
                     {categories.map(category => (
-                      <MenuItem value={category}>{category}</MenuItem>
+                      <MenuItem key={category} value={category}>
+                        {category}
+                      </MenuItem>
                     ))}
                   </Select>
                 </FormControl>
                 <TextField
+                  required
                   className={classes.formControl}
                   color="secondary"
                   multiline
@@ -112,7 +135,11 @@ export default withStyles(styles)(
               </form>
             </DialogContent>
             <DialogActions>
-              <Button variant="contained" color="secondary">
+              <Button
+                onClick={this.handleSubmit}
+                variant="contained"
+                color="secondary"
+              >
                 Create
               </Button>
             </DialogActions>
