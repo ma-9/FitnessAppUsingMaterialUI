@@ -42,12 +42,15 @@ export default class App extends Component {
 
   handleExerciseSelect = id =>
     this.setState(({ exercises }) => ({
-      exercise: exercises.find(ex => ex.id === id)
+      exercise: exercises.find(ex => ex.id === id),
+      editMode: false
     }));
 
   handleExerciseDelete = id =>
     this.setState(({ exercises }) => ({
-      exercises: exercises.filter(ex => ex.id !== id)
+      exercises: exercises.filter(ex => ex.id !== id),
+      editMode: false,
+      exercise: {}
     }));
 
   handleExerciseSelectEdit = id =>
@@ -58,7 +61,8 @@ export default class App extends Component {
 
   handleExerciseEdit = exercise => {
     this.setState(({ exercises }) => ({
-      exercises: [...exercises.filter(ex => ex.id !== exercise.id), exercise]
+      exercises: [...exercises.filter(ex => ex.id !== exercise.id), exercise],
+      exercise
     }));
   };
 
@@ -82,6 +86,7 @@ export default class App extends Component {
           onSelect={this.handleExerciseSelect}
           category={category}
           exercises={exercises}
+          onEdit={this.handleExerciseEdit}
         />
         <Footer
           muscles={muscles}
