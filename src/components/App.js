@@ -73,9 +73,15 @@ export default class App extends Component {
     return (
       <Fragment>
         <CssBaseline />
+
         <Header
           muscles={muscles}
           onExerciseCreate={this.handleExerciseCreate}
+        />
+        <Footer
+          muscles={muscles}
+          category={category}
+          onSelect={this.handleCategorySelect}
         />
         <Exercise
           muscles={muscles}
@@ -87,11 +93,6 @@ export default class App extends Component {
           category={category}
           exercises={exercises}
           onEdit={this.handleExerciseEdit}
-        />
-        <Footer
-          muscles={muscles}
-          category={category}
-          onSelect={this.handleCategorySelect}
         />
       </Fragment>
     );

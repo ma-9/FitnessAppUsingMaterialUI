@@ -6,7 +6,7 @@ export default ({ muscles, onExerciseCreate }) => (
   <AppBar position="static" color="secondary">
     <Toolbar>
       <Typography variant="h6" style={{ flex: 1 }}>
-        Exercise Database
+        Fitness Exercises
       </Typography>
       <Dialog muscles={muscles} onCreate={onExerciseCreate} />
     </Toolbar>
