@@ -15,7 +15,8 @@ const theme = createMuiTheme({
       main: '#323648' // Dodge Blue
     },
     type: 'dark'
-  }
+  },
+  spacing: 10
 });
 
 const rootElement = document.getElementById('root');

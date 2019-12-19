@@ -15,15 +15,34 @@ import { Delete, Edit } from '@material-ui/icons';
 import Form from './Form';
 import { withStyles } from '@material-ui/styles';
 
-const Styles = {
-  Paper: {
-    padding: 20,
-    marginTop: 5,
-    height: 450,
+const Styles = theme => ({
+  paper: {
+    padding: theme.spacing.unit * 2,
+    [theme.breakpoints.up('sm')]: {
+      marginTop: 5,
+      height: 450
+    },
+    [theme.breakpoints.down('xs')]: {
+      height: '100%'
+    },
     overflowY: 'auto'
+  },
+  '@global': {
+    'html, body, #root': {
+      height: '100%'
+    }
+  },
+  items: {
+    [theme.breakpoints.down('xs')]: {
+      height: 300
+    }
+  },
+  itemsDisplay: {
+    [theme.breakpoints.down('xs')]: {
+      height: 300
+    }
   }
-};
-
+});
 export default withStyles(Styles)(
   ({
     muscles,
@@ -43,8 +62,8 @@ export default withStyles(Styles)(
     }
   }) => (
     <Grid container>
-      <Grid item xs={12} sm={6}>
-        <Paper className={classes.Paper}>
+      <Grid item className={classes.items} xs={12} sm={6}>
+        <Paper className={classes.paper}>
           {exercises.map(([group, exercises]) =>
             !category || category === group ? (
               <Fragment key={group}>
@@ -75,8 +94,8 @@ export default withStyles(Styles)(
           )}
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <Paper className={classes.Paper}>
+      <Grid className={classes.itemsDisplay} item xs={12} sm={6}>
+        <Paper className={classes.paper}>
           <Typography variant="h5" color="primary" gutterBottom>
             {title}
           </Typography>
