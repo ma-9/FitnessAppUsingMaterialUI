@@ -56,6 +56,12 @@ export default class App extends Component {
       editMode: true
     }));
 
+  handleExerciseEdit = exercise => {
+    this.setState(({ exercises }) => ({
+      exercises: [...exercises.filter(ex => ex.id !== exercise.id), exercise]
+    }));
+  };
+
   render() {
     const exercises = this.getExerciseByMuscles(),
       { category, exercise, editMode } = this.state;
@@ -68,10 +74,11 @@ export default class App extends Component {
         <br />
         <br />
         <Exercise
+          muscles={muscles}
           editMode={editMode}
           onSelectEdit={this.handleExerciseSelectEdit}
           onDelete={this.handleExerciseDelete}
-          ex={exercise}
+          exercise={exercise}
           onSelect={this.handleExerciseSelect}
           category={category}
           exercises={exercises}

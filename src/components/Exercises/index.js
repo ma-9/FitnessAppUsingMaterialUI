@@ -12,6 +12,8 @@ import {
 
 import { Delete, Edit } from '@material-ui/icons';
 
+import Form from './Form';
+
 const Styles = {
   Paper: {
     padding: 20,
@@ -23,13 +25,16 @@ const Styles = {
 };
 
 export default ({
+  muscles,
   exercises,
   category,
   onSelect,
   onDelete,
   onSelectEdit,
   editMode,
-  ex: {
+  onEdit,
+  exercise,
+  exercise: {
     id,
     title = 'Welcome Folks!',
     description = 'Please Select an exercise from the list on the left.'
@@ -67,7 +72,7 @@ export default ({
     <Grid item xs>
       <Paper style={Styles.Paper}>
         {editMode ? (
-          <form />
+          <Form exercise={exercise} muscles={muscles} onSubmit={onEdit} />
         ) : (
           <Fragment>
             <Typography variant="h5">{title}</Typography>
