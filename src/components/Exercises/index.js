@@ -50,6 +50,7 @@ export default withStyles(Styles)(
               <Fragment key={group}>
                 <Typography
                   variant="h6"
+                  color="primary"
                   style={{ textTransform: 'capitalize' }}
                 >
                   {group}
@@ -60,7 +61,7 @@ export default withStyles(Styles)(
                       <ListItemText primary={title} />
                       <ListItemSecondaryAction>
                         <IconButton onClick={() => onSelectEdit(id)}>
-                          <Edit color="inherit" />
+                          <Edit color="primary" />
                         </IconButton>
                         <IconButton onClick={() => onDelete(id)}>
                           <Delete color="error" />
@@ -76,7 +77,7 @@ export default withStyles(Styles)(
       </Grid>
       <Grid item xs={12} sm={6}>
         <Paper className={classes.Paper}>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h5" color="primary" gutterBottom>
             {title}
           </Typography>
           {editMode ? (

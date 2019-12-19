@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Header, Footer } from './layouts';
+import { Header, Appbar } from './layouts';
 import Exercise from './Exercises';
 import { muscles, exercises } from '../Store';
 import { CssBaseline } from '@material-ui/core';
@@ -78,7 +78,7 @@ export default class App extends Component {
           muscles={muscles}
           onExerciseCreate={this.handleExerciseCreate}
         />
-        <Footer
+        <Appbar
           muscles={muscles}
           category={category}
           onSelect={this.handleCategorySelect}

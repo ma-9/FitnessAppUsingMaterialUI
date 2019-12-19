@@ -1,14 +1,21 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import Dialog from '../Exercises/Dialog';
+import { withStyles } from '@material-ui/core';
 
-export default ({ muscles, onExerciseCreate }) => (
+const styles = {
+  flex: {
+    flex: 1
+  }
+};
+
+export default withStyles(styles)(({ classes, muscles, onExerciseCreate }) => (
   <AppBar position="static" color="secondary">
     <Toolbar>
-      <Typography variant="h6" style={{ flex: 1 }}>
+      <Typography variant="h6" className={classes.flex}>
         Fitness Exercises
       </Typography>
       <Dialog muscles={muscles} onCreate={onExerciseCreate} />
     </Toolbar>
   </AppBar>
-);
+));

@@ -37,7 +37,7 @@ export default class extends Component {
     return (
       <Fragment>
         <Tooltip title="Add New Exercise" placement="left">
-          <Fab onClick={this.handleToggle} size="small">
+          <Fab color="primary" onClick={this.handleToggle} size="small">
             <AddIcon />
           </Fab>
         </Tooltip>
