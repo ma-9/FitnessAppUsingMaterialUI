@@ -32,10 +32,6 @@ export default withStyles(styles)(
           };
     }
 
-    static getDerivedStateFromProps({ exercise }) {
-      return exercise || null;
-    }
-
     handleChange = name => e =>
       this.setState({
         [name]: e.target.value
@@ -48,7 +44,6 @@ export default withStyles(styles)(
         id: this.state.title.toLowerCase().replace(/ /g, '-'),
         ...this.state
       });
-      this.setState(this.getInitState());
     };
 
     render() {
