@@ -76,6 +76,9 @@ export default withStyles(Styles)(
       </Grid>
       <Grid item xs={12} sm={6}>
         <Paper className={classes.Paper}>
+          <Typography variant="h5" gutterBottom>
+            {title}
+          </Typography>
           {editMode ? (
             <Form
               key={id}
@@ -84,12 +87,7 @@ export default withStyles(Styles)(
               onSubmit={onEdit}
             />
           ) : (
-            <Fragment>
-              <Typography variant="h5">{title}</Typography>
-              <Typography variant="subtitle1" style={{ marginTop: 20 }}>
-                {description}
-              </Typography>
-            </Fragment>
+            <Typography variant="subtitle1">{description}</Typography>
           )}
         </Paper>
       </Grid>

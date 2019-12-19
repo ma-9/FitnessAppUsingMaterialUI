@@ -78,7 +78,6 @@ export default withStyles(styles)(
             </Select>
           </FormControl>
           <TextField
-            required
             className={classes.formControl}
             color="secondary"
             multiline
@@ -96,6 +95,7 @@ export default withStyles(styles)(
             onClick={this.handleSubmit}
             variant="contained"
             color="secondary"
+            disabled={!title || !muscles}
           >
             {this.props.exercise ? 'Update' : 'Create'}
           </Button>
