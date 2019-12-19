@@ -17,8 +17,7 @@ import Form from './Form';
 const Styles = {
   Paper: {
     padding: 20,
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 5,
     height: 400,
     overflowY: 'auto'
   }
@@ -41,7 +40,7 @@ export default ({
   }
 }) => (
   <Grid container>
-    <Grid item xs>
+    <Grid item xs={12} sm={6}>
       <Paper style={Styles.Paper}>
         {exercises.map(([group, exercises]) =>
           !category || category === group ? (
@@ -69,7 +68,7 @@ export default ({
         )}
       </Paper>
     </Grid>
-    <Grid item xs>
+    <Grid item xs={12} sm={6}>
       <Paper style={Styles.Paper}>
         {editMode ? (
           <Form exercise={exercise} muscles={muscles} onSubmit={onEdit} />
