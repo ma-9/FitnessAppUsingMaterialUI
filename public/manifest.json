@@ -1,0 +1,15 @@
+{
+  "short_name": "Fitness App",
+  "name": "Write your own Exercises",
+  "icons": [
+    {
+      "src": "gym-icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#fff",
+  "background_color": "#000"
+}
