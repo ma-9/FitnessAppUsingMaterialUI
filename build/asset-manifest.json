@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/FitnessAppUsingMaterialUI/static/js/main.8b59fbbc.chunk.js",
+    "main.js.map": "/FitnessAppUsingMaterialUI/static/js/main.8b59fbbc.chunk.js.map",
+    "runtime~main.js": "/FitnessAppUsingMaterialUI/static/js/runtime~main.2e47ed76.js",
+    "runtime~main.js.map": "/FitnessAppUsingMaterialUI/static/js/runtime~main.2e47ed76.js.map",
+    "static/js/2.dd70a06a.chunk.js": "/FitnessAppUsingMaterialUI/static/js/2.dd70a06a.chunk.js",
+    "static/js/2.dd70a06a.chunk.js.map": "/FitnessAppUsingMaterialUI/static/js/2.dd70a06a.chunk.js.map",
+    "index.html": "/FitnessAppUsingMaterialUI/index.html",
+    "precache-manifest.3d29a5bd1422573ee8b88123ede36dc5.js": "/FitnessAppUsingMaterialUI/precache-manifest.3d29a5bd1422573ee8b88123ede36dc5.js",
+    "service-worker.js": "/FitnessAppUsingMaterialUI/service-worker.js"
+  }
+}
