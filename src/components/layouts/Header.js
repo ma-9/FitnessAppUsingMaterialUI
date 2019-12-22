@@ -9,13 +9,13 @@ const styles = {
   }
 };
 
-export default withStyles(styles)(({ classes, muscles, onExerciseCreate }) => (
-  <AppBar position="static" color="secondary">
+export default withStyles(styles)(({ classes, onExerciseCreate }) => (
+  <AppBar position='static' color='secondary'>
     <Toolbar>
-      <Typography variant="h6" className={classes.flex}>
+      <Typography variant='h6' className={classes.flex}>
         Fitness Exercises
       </Typography>
-      <Dialog muscles={muscles} onCreate={onExerciseCreate} />
+      <Dialog />
     </Toolbar>
   </AppBar>
 ));

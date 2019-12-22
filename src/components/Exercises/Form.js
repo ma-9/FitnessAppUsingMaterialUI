@@ -10,7 +10,7 @@ import {
   Button
 } from '@material-ui/core';
 
-const styles = theme => ({
+const styles = (theme) => ({
   formControl: {
     width: '100%',
     marginTop: 20
@@ -32,7 +32,7 @@ export default withStyles(styles)(
           };
     }
 
-    handleChange = name => e =>
+    handleChange = (name) => (e) =>
       this.setState({
         [name]: e.target.value
       });
@@ -53,27 +53,27 @@ export default withStyles(styles)(
         <form>
           <TextField
             required
-            color="secondary"
-            label="Title"
+            color='primary'
+            label='Title'
             onChange={this.handleChange('title')}
             value={title}
-            variant="outlined"
-            margin="dense"
+            variant='outlined'
+            margin='dense'
             className={classes.formControl}
           />
-          <FormControl color="secondary" className={classes.formControl}>
-            <InputLabel id="muscles">Muscles</InputLabel>
+          <FormControl color='primary' className={classes.formControl}>
+            <InputLabel id='muscles'>Muscles</InputLabel>
             <Select
               required
-              labelId="muscles"
-              id="demo-simple-select"
+              labelId='muscles'
+              id='demo-simple-select'
               value={muscles}
               onChange={this.handleChange('muscles')}
             >
               <MenuItem default disabled>
                 -- Select Any One --
               </MenuItem>
-              {categories.map(category => (
+              {categories.map((category) => (
                 <MenuItem key={category} value={category}>
                   {category}
                 </MenuItem>
@@ -82,22 +82,22 @@ export default withStyles(styles)(
           </FormControl>
           <TextField
             className={classes.formControl}
-            color="secondary"
+            color='primary'
             multiline
-            rows="4"
+            rows='4'
             fullWidth
-            label="Description"
+            label='Description'
             onChange={this.handleChange('description')}
             value={description}
-            margin="dense"
-            variant="outlined"
+            margin='dense'
+            variant='outlined'
           />
           <br />
           <br />
           <Button
             onClick={this.handleSubmit}
-            variant="contained"
-            color="secondary"
+            variant='contained'
+            color='secondary'
             disabled={!title || !muscles}
           >
             {this.props.exercise ? 'Update' : 'Create'}

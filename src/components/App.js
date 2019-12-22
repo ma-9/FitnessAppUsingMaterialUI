@@ -3,6 +3,7 @@ import { Header, Appbar } from './layouts';
 import Exercise from './Exercises';
 import { muscles, exercises } from '../Store';
 import { CssBaseline } from '@material-ui/core';
+import { Provider } from '../Context';
 
 export default class App extends Component {
   state = {
@@ -67,34 +68,39 @@ export default class App extends Component {
     }));
   };
 
+  getContext = () => ({
+    muscles,
+    ...this.state,
+    onCreate: this.handleExerciseCreate
+  });
+
   render() {
     const exercises = this.getExerciseByMuscles(),
       { category, exercise, editMode } = this.state;
     return (
-      <Fragment>
-        <CssBaseline />
+      <Provider value={this.getContext()}>
+        <Fragment>
+          <CssBaseline />
 
-        <Header
-          muscles={muscles}
-          onExerciseCreate={this.handleExerciseCreate}
-        />
-        <Appbar
-          muscles={muscles}
-          category={category}
-          onSelect={this.handleCategorySelect}
-        />
-        <Exercise
-          muscles={muscles}
-          editMode={editMode}
-          onSelectEdit={this.handleExerciseSelectEdit}
-          onDelete={this.handleExerciseDelete}
-          exercise={exercise}
-          onSelect={this.handleExerciseSelect}
-          category={category}
-          exercises={exercises}
-          onEdit={this.handleExerciseEdit}
-        />
-      </Fragment>
+          <Header />
+          <Appbar
+            muscles={muscles}
+            category={category}
+            onSelect={this.handleCategorySelect}
+          />
+          <Exercise
+            muscles={muscles}
+            editMode={editMode}
+            onSelectEdit={this.handleExerciseSelectEdit}
+            onDelete={this.handleExerciseDelete}
+            exercise={exercise}
+            onSelect={this.handleExerciseSelect}
+            category={category}
+            exercises={exercises}
+            onEdit={this.handleExerciseEdit}
+          />
+        </Fragment>
+      </Provider>
     );
   }
 }

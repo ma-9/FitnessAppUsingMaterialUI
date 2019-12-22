@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, Component, createContext } from 'react';
 
 import {
   Fab,
@@ -13,7 +13,9 @@ import AddIcon from '@material-ui/icons/Add';
 
 import Form from './Form';
 
-export default class extends Component {
+import { withContext } from '../../Context';
+
+class CreateDialog extends Component {
   state = {
     open: false
   };
@@ -24,7 +26,7 @@ export default class extends Component {
     });
   };
 
-  handleFormSubmit = exercise => {
+  handleFormSubmit = (exercise) => {
     this.handleToggle();
 
     this.props.onCreate(exercise);
@@ -36,8 +38,8 @@ export default class extends Component {
 
     return (
       <Fragment>
-        <Tooltip title="Add New Exercise" placement="left">
-          <Fab color="primary" onClick={this.handleToggle} size="small">
+        <Tooltip title='Add New Exercise' placement='left'>
+          <Fab color='primary' onClick={this.handleToggle} size='small'>
             <AddIcon />
           </Fab>
         </Tooltip>
@@ -54,3 +56,5 @@ export default class extends Component {
     );
   }
 }
+
+export default withContext(CreateDialog);
