@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Header, Appbar } from './layouts';
 import Exercise from './Exercises';
 import { muscles, exercises } from '../Store';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, Hidden } from '@material-ui/core';
 
 export default class App extends Component {
   state = {

@@ -70,6 +70,9 @@ export default withStyles(styles)(
               value={muscles}
               onChange={this.handleChange('muscles')}
             >
+              <MenuItem default disabled>
+                -- Select Any One --
+              </MenuItem>
               {categories.map(category => (
                 <MenuItem key={category} value={category}>
                   {category}

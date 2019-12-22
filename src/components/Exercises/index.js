@@ -27,11 +27,6 @@ const Styles = theme => ({
     },
     overflowY: 'auto'
   },
-  '@global': {
-    'html, body, #root': {
-      height: '100%'
-    }
-  },
   items: {
     [theme.breakpoints.down('xs')]: {
       height: 300
